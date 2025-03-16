@@ -19,6 +19,7 @@ import {
 } from "../features/products/productSlilce";
 import { toast } from "react-toastify";
 import { addProdToCart, getUserCart } from "../features/user/userSlice";
+import RAGAgent from "../components/rag/RAGAgent";
 
 const SingleProduct = () => {
   const [color, setColor] = useState(null);
@@ -475,6 +476,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div> */}
+      <RAGAgent />
     </>
   );
 };
