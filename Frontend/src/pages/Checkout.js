@@ -24,6 +24,12 @@ let shippingSchema = yup.object({
   pincode: yup.number("Pincode No is Required").required().positive().integer(),
 });
 
+const RAZORPAY_API_KEY = process.env.REACT_APP_RAZORPAY_API_KEY;
+
+if (!RAZORPAY_API_KEY) {
+  throw new Error("RAZORPAY_API_KEY is not found in .env file", "FRONTEND");
+}
+
 const Checkout = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state?.auth?.cartProducts);
@@ -143,7 +149,7 @@ const Checkout = () => {
     const { amount, id: order_id, currency } = result.data.order;
 
     const options = {
-      key: "rzp_test_HSSeDI22muUrLR", // Enter the Key ID generated from the Dashboard
+      key: RAZORPAY_API_KEY, // Enter the Key ID generated from the Dashboard
       amount: amount,
       currency: currency,
       name: "Cart's corner",
@@ -177,9 +183,9 @@ const Checkout = () => {
         dispatch(resetState());
       },
       prefill: {
-        name: "Dev Corner",
-        email: "devcorner@example.com",
-        contact: "9999999999",
+        name: "XYZ",
+        email: "XYZ@example.com",
+        contact: "1234567890",
       },
       notes: {
         address: "developer's cornor office",
@@ -230,9 +236,7 @@ const Checkout = () => {
                 </ol>
               </nav>
               <h4 className="title total">Contact Information</h4>
-              <p className="user-details total">
-                Dev Jariwala (devjariwala8444@gmail.com)
-              </p>
+              <p className="user-details total">XYZ (xyz@gmail.com)</p>
               <h4 className="mb-3">Shipping Address</h4>
               <form
                 onSubmit={formik.handleSubmit}
