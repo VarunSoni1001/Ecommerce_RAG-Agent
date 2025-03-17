@@ -177,9 +177,9 @@ const Checkout = () => {
         dispatch(resetState());
       },
       prefill: {
-        name: "Dev Corner",
-        email: "devcorner@example.com",
-        contact: "9999999999",
+        name: "XYZ",
+        email: "XYZ@example.com",
+        contact: "1234567890",
       },
       notes: {
         address: "developer's cornor office",
@@ -230,9 +230,7 @@ const Checkout = () => {
                 </ol>
               </nav>
               <h4 className="title total">Contact Information</h4>
-              <p className="user-details total">
-                Dev Jariwala (devjariwala8444@gmail.com)
-              </p>
+              <p className="user-details total">XYZ (xyz@gmail.com)</p>
               <h4 className="mb-3">Shipping Address</h4>
               <form
                 onSubmit={formik.handleSubmit}

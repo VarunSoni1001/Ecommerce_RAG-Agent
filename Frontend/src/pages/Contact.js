@@ -130,19 +130,19 @@ const Contact = () => {
                     <li className="mb-3 d-flex gap-15 align-items-center">
                       <AiOutlineHome className="fs-5" />
                       <address className="mb-0">
-                        Hno : Daiict college, Reliance Cross Rd,
-                        Gandhinagar,Gujarat, 382007
+                        xyz, <br />
+                        xyz, <br />
+                        xyz, <br />
+                        PinCode: 123456
                       </address>
                     </li>
                     <li className="mb-3 d-flex gap-15 align-items-center">
                       <BiPhoneCall className="fs-5" />
-                      <a href="tel:+91 8264954234">+91 8264954234</a>
+                      <a href="tel:+91 8264954234">+91 1234567890</a>
                     </li>
                     <li className="mb-3 d-flex gap-15 align-items-center">
                       <AiOutlineMail className="fs-5" />
-                      <a href="mailto:devjariwala8444@gmail.com">
-                        devjariwala8444@gmail.com
-                      </a>
+                      <a href="mailto:xyz@gmail.com">xyz@gmail.com</a>
                     </li>
                     <li className="mb-3 d-flex gap-15 align-items-center">
                       <BiInfoCircle className="fs-5" />
