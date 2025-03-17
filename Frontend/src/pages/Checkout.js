@@ -152,7 +152,7 @@ const Checkout = () => {
       key: RAZORPAY_API_KEY, // Enter the Key ID generated from the Dashboard
       amount: amount,
       currency: currency,
-      name: "Cart's corner",
+      name: "RAG Ecom",
       description: "Test Transaction",
 
       order_id: order_id,
@@ -188,7 +188,7 @@ const Checkout = () => {
         contact: "1234567890",
       },
       notes: {
-        address: "developer's cornor office",
+        address: "developer's office",
       },
       theme: {
         color: "#61dafb",
@@ -204,7 +204,7 @@ const Checkout = () => {
         <div className="row">
           <div className="col-7">
             <div className="checkout-left-data">
-              <h3 className="website-name">Cart Corner</h3>
+              <h3 className="website-name">Rag Ecom</h3>
               <nav
                 style={{ "--bs-breadcrumb-divider": ">" }}
                 aria-label="breadcrumb"
@@ -340,7 +340,7 @@ const Checkout = () => {
                     <option value="" selected disabled>
                       Select State
                     </option>
-                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
                   </select>
                   <div className="error ms-2 my-1">
                     {formik.touched.state && formik.errors.state}

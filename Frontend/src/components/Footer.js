@@ -38,15 +38,15 @@ const Footer = () => {
               <h4 className="text-white mb-4">Contact Us</h4>
               <div>
                 <address className="text-white fs-6">
-                  Hno : Daiict college, Reliance Cross Rd, <br />{" "}
-                  Gandhinagar,Gujarat <br />
-                  PinCode: 382007
+                  123, XYZ Street, <br />
+                  ABC City, <br />
+                  Pincode: 123456
                 </address>
                 <a
                   href="tel:+91 8264954234"
                   className="mt-3 d-block mb-1 text-white"
                 >
-                  +91 8264954234
+                  +91 1234567890
                 </a>
                 <a
                   href="mailto:xyz@gmail.com"
@@ -113,7 +113,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-12">
               <p className="text-center mb-0 text-white">
-                &copy; {new Date().getFullYear()}; Powered by Cart Corner
+                &copy; {new Date().getFullYear()}; Powered by RAG Ecom
               </p>
             </div>
           </div>
