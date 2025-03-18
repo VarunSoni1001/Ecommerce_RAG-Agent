@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ragService } from "../../features/rag/ragService";
+import "./RAGAgent.css";
 
 const RAGAgent = () => {
   const [messages, setMessages] = useState([]);
