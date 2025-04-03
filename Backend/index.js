@@ -16,6 +16,7 @@ const enqRouter = require("./routes/enqRoute");
 const couponRouter = require("./routes/couponRoute");
 const uploadRouter = require("./routes/uploadRoute");
 const cookieParser = require("cookie-parser");
+const storeRouter = require("./routes/storeInfoRoute");
 const morgan = require("morgan");
 const cors = require("cors");
 
@@ -35,6 +36,7 @@ app.use("/api/coupon", couponRouter);
 app.use("/api/color", colorRouter);
 app.use("/api/enquiry", enqRouter);
 app.use("/api/upload", uploadRouter);
+app.use("/api/store", storeRouter);
 
 app.use(notFound);
 app.use(errorHandler);
