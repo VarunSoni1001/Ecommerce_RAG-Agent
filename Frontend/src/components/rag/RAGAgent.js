@@ -21,7 +21,7 @@ const RAGAgent = () => {
     setPrompt("");
     
     try {
-      const res = await ragService.getRag(userMessage.text);
+      const res = await ragService.getRag(userMessage.text, undefined, "product");
       const ragMessage = { type: "rag", text: res };
       setMessages((prev) => [...prev, ragMessage]);
     } catch (error) {
