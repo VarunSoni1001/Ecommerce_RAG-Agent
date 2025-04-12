@@ -314,7 +314,10 @@ const Addproduct = () => {
           </div>
           <div className="bg-white border-1 p-5 text-center">
             <Dropzone
-              onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))}
+              onDrop={(acceptedFiles) => dispatch(uploadImg(acceptedFiles))} // TODO: NEED TO CHECK NOT WORKING AS EXPECTED
+              // accept={["image/jpeg", "image/png", "image/jpg"]}
+              multiple
+              // maxFiles={10}
             >
               {({ getRootProps, getInputProps }) => (
                 <section>
@@ -330,6 +333,7 @@ const Addproduct = () => {
           </div>
           <div className="showimages d-flex flex-wrap gap-3">
             {imgshow?.map((i, j) => {
+              // console.log(i);
               return (
                 <div className=" position-relative" key={j}>
                   <button
@@ -343,6 +347,7 @@ const Addproduct = () => {
               );
             })}
             {imgState?.map((i, j) => {
+              // console.log(i);
               return (
                 <div className=" position-relative" key={j}>
                   <button

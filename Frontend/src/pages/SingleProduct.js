@@ -476,7 +476,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div> */}
-      <RAGAgent />
+      <RAGAgent data={productState} type="single_product" />
     </>
   );
 };

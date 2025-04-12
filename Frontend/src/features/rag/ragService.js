@@ -17,11 +17,9 @@ Only answer questions related to the store's identity, policies, address, or con
 If a query is unrelated to this store information, say: "Sorry, I can’t help with that based on the information I have."
 
 Store Info Format:
-- About: ${data.about}
-- Contact Details: ${JSON.stringify(data.contact_details, null, 2)}
-- Address: ${data.address}
-- Privacy Policy: ${data.privacy_policy}
-- Return Policy: ${data.return_policy}
+${JSON.stringify(data, null, 2)}
+
+Please use INR symbols for pricing and provide responses in markdown format.
 `;
 
 const productsListSystemInstruction = (data) => `
@@ -33,6 +31,9 @@ Do not hallucinate product features or names. Only recommend from the list.
 
 Here's the product list:
 ${JSON.stringify(data, null, 2)}
++ Shipping & Returns for all products :
+Free shipping and returns available on all orders!
+We ship all India domestic orders within 5-10 business days!
 
 Each product includes:
 - Name
@@ -45,7 +46,16 @@ Each product includes:
 
 You may present products in a list format or guide the user to a specific category.
 
+If user needs link/suggestion to a product, say: "You can find the product link here [product_name](http://localhost:3000/product/{id_of_product})" (replace id_of_product with actual product id and product_name with actual product name with underline).
+Also include links everytime you mention a product.
+
+Don't include product names twice in the response with product link if already mentioned in heading instead use 'link' with underline.
+
 If no products match, say: "No products found matching your request."
+
+Don't disclose any business specific details like quantities.
+
+Please use INR symbols for pricing and provide responses in markdown format.
 `;
 
 const singleProductSystemInstruction = (data) => `
@@ -57,15 +67,17 @@ Use this info to respond to questions about this specific product's features, ma
 
 If the user asks about something not present in the product info, say: "That detail isn't available for this product."
 
-Product Format:
-- Name: ${data.name}
-- Description: ${data.description}
-- Features: ${data.features}
-- Price: ${data.price}
-- In Stock: ${data.in_stock}
-- Reviews: ${data.reviews}
-- Brand: ${data.brand}
-- Category: ${data.category}
+If the user asks for a comparison with a /related product, say: "I can only provide information about this specific product."
+
+Product Details:
+${JSON.stringify(data, null, 2)}
++ Shipping & Returns :
+Free shipping and returns available on all orders!
+We ship all India domestic orders within 5-10 business days!
+
+Don't disclose any business specific details like quantities.
+
+Please use INR symbols for pricing and provide responses in markdown format.
 `;
 
 const getRag = async (

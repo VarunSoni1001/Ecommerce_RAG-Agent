@@ -8,6 +8,7 @@ import Container from "../components/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../features/products/productSlilce";
 import { Link } from "react-router-dom";
+import RAGAgent from "../components/rag/RAGAgent";
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
@@ -226,6 +227,9 @@ const OurStore = () => {
             </div>
           </div>
         </div>
+        <RAGAgent 
+        data={productState}
+        type="many_products" />
       </Container>
     </>
   );
