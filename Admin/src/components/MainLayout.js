@@ -112,6 +112,11 @@ const MainLayout = () => {
               label: "Orders",
             },
             {
+              key: "store-info",
+              icon: <AiOutlineBgColors className="fs-4" />,
+              label: "Store Info",
+            },
+            {
               key: "marketing",
               icon: <RiCouponLine className="fs-4" />,
               label: "Marketing",
