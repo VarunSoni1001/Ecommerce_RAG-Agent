@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -25,11 +25,18 @@ const schema = yup.object().shape({
 
 const AddStoreInfo = () => {
   const dispatch = useDispatch();
+  const [storeInformation, setstoreInformation] = useState([]);
   const { storeInfo, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.store
   );
 
-  const existingInfo = storeInfo[0] || {
+  useEffect(() => {
+    if (storeInfo && storeInfo.length > 0) {
+      setstoreInformation(storeInfo);
+    }
+  }, [storeInfo]);
+
+  const existingInfo = storeInformation[0] || {
     about:
       "this is the store named RAG Ecom. this is an RAG based ecommerce project",
     privacy:
@@ -47,7 +54,7 @@ const AddStoreInfo = () => {
 
   useEffect(() => {
     dispatch(getStoreInfo());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (isSuccess) {

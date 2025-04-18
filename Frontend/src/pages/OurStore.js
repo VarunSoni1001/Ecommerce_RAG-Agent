@@ -9,12 +9,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../features/products/productSlilce";
 import { Link } from "react-router-dom";
 import RAGAgent from "../components/rag/RAGAgent";
+import { RAGToggleButton } from "../components/rag/RAGToggleButton";
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
   const productState = useSelector((state) => state?.product?.product);
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [showRAGAgent, setShowRAGAgent] = useState(false);
 
   const [tags, setTags] = useState([]);
 
@@ -227,9 +229,11 @@ const OurStore = () => {
             </div>
           </div>
         </div>
-        <RAGAgent 
-        data={productState}
-        type="many_products" />
+        {showRAGAgent && <RAGAgent data={productState} type="many_products" showRAGAgent={showRAGAgent} setShowRAGAgent={setShowRAGAgent} />}
+        <RAGToggleButton
+          showRAGAgent={showRAGAgent}
+          setShowRAGAgent={setShowRAGAgent}
+        />
       </Container>
     </>
   );

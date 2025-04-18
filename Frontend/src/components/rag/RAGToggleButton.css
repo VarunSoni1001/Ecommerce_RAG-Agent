@@ -1,0 +1,65 @@
+.rag-toggle-wrapper {
+  position: sticky;
+  bottom: 20px;
+  right: 20px;
+  width: auto;
+  margin: 20px;
+  z-index: 1000;
+}
+
+.rag-toggle-button {
+  margin-left: calc(100% - 145px);
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #dfe9f3,
+    #c9d6ff,
+    #e0c3fc,
+    #8ec5fc,
+    #c9d6ff
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  color: #2d3748;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+}
+
+.rag-toggle-button:hover {
+  background-color: #cbd5e0;
+}
+
+.rag-toggle-button:hover {
+  filter: brightness(0.95);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 70%;
+  }
+
+  50% {
+    background-position: 70% 40%;
+  }
+
+  100% {
+    background-position: 0% 40%;
+  }
+}
+
+sup {
+  color: #4a5568;
+  font-size: 12px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
