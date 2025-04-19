@@ -34,8 +34,10 @@ const SingleProduct = () => {
   const productState = useSelector((state) => state?.product?.singleproduct);
   const productsState = useSelector((state) => state?.product?.product);
   const cartState = useSelector((state) => state?.auth?.cartProducts);
-  const rat = productState?.totalrating;
   const wishlistState = useSelector((state) => state?.auth?.wishlist?.wishlist);
+  const [selectedZoomImage, setSelectedZoomImage] = useState(
+    productState?.images[0]?.url || "https://placehold.co/400"
+  );
   console.log(wishlistState);
 
   useEffect(() => {
@@ -72,7 +74,7 @@ const SingleProduct = () => {
     height: 600,
     zoomWidth: 600,
 
-    img: productState?.images[0].url || "https://placehold.co/400",
+    img: selectedZoomImage || "https://placehold.co/400",
   };
 
   const [orderedProduct, setorderedProduct] = useState(true);
@@ -144,7 +146,12 @@ const SingleProduct = () => {
               <div className="other-product-images d-flex flex-wrap gap-15">
                 {productState?.images.map((item, index) => {
                   return (
-                    <div key={index}>
+                    <div
+                      key={index}
+                      onMouseEnter={() => {
+                        setSelectedZoomImage(item?.url);
+                      }}
+                    >
                       <img
                         src={item?.url || "https://placehold.co/400"}
                         className="img-fluid"
@@ -166,7 +173,7 @@ const SingleProduct = () => {
                     <ReactStars
                       count={5}
                       size={24}
-                      value={productState?.totalrating.toString()}
+                      value={productState?.totalrating?.toString()}
                       edit={false}
                       activeColor="#ffd700"
                     />
@@ -222,6 +229,7 @@ const SingleProduct = () => {
                       <Color
                         setColor={setColor}
                         colorData={productState?.color}
+                        selectedColorId={color}
                       />
                     </div>
                   )}
@@ -396,7 +404,7 @@ const SingleProduct = () => {
                   {productState &&
                     productState.ratings?.map((item, index) => {
                       return (
-                        <div className="review">
+                        <div className="review" key={index}>
                           <div className="d-flex gap-10 align-items-center">
                             <h6 className="mb-0">user</h6>
                             <ReactStars
