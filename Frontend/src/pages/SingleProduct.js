@@ -35,9 +35,7 @@ const SingleProduct = () => {
   const productsState = useSelector((state) => state?.product?.product);
   const cartState = useSelector((state) => state?.auth?.cartProducts);
   const wishlistState = useSelector((state) => state?.auth?.wishlist?.wishlist);
-  const [selectedZoomImage, setSelectedZoomImage] = useState(
-    productState?.images[0]?.url || "https://placehold.co/400"
-  );
+  const [selectedZoomImage, setSelectedZoomImage] = useState(null);
   console.log(wishlistState);
 
   useEffect(() => {
@@ -45,6 +43,12 @@ const SingleProduct = () => {
     dispatch(getUserCart());
     dispatch(getAllProducts());
   }, []);
+
+  useEffect(() => {
+    if (productState?.images?.length > 0) {
+      setSelectedZoomImage(productState?.images[0]?.url);
+    }
+  }, [productState]);
 
   useEffect(() => {
     for (let index = 0; index < cartState?.length; index++) {
