@@ -266,7 +266,7 @@ const Home = () => {
                       </div>
                       <div className="product-image">
                         <img
-                          src={"https://placehold.co/400"}
+                          src={item?.images[0]?.url || "https://placehold.co/400"}
                           //className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -274,7 +274,7 @@ const Home = () => {
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                         <img
-                          src={"https://placehold.co/400"}
+                          src={item?.images[0]?.url || "https://placehold.co/400"}
                           //className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -402,7 +402,7 @@ const Home = () => {
                     brand={item?.brand}
                     totalrating={item?.totalrating.toString()}
                     price={item?.price}
-                    img={"https://placehold.co/400"}
+                    img={item?.images[0]?.url || "https://placehold.co/400"}
                     sold={item?.sold}
                     quantity={item?.quantity}
                   />
@@ -420,6 +420,7 @@ const Home = () => {
         <div className="row">
           {productState &&
             productState?.map((item, index) => {
+              console.log("item", item?.images[0]?.url);
               if (item.tags === "popular") {
                 return (
                   <div key={index} className={"col-3"}>
@@ -437,7 +438,7 @@ const Home = () => {
                       </div>
                       <div className="product-image">
                         <img
-                          src={"https://placehold.co/400"}
+                          src={item?.images[0]?.url || "https://placehold.co/400"}
                           // className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -445,7 +446,7 @@ const Home = () => {
                           onClick={() => navigate("/product/" + item?._id)}
                         />
                         <img
-                          src={"https://placehold.co/400"}
+                          src={item?.images[0]?.url || "https://placehold.co/400"}
                           // className="img-fluid d"
                           alt="product image"
                           height={"250px"}
@@ -543,7 +544,7 @@ const Home = () => {
                       id={item?._id}
                       title={item?.title}
                       description={item?.description}
-                      image={"https://placehold.co/400"}
+                      image={item?.images[0]?.url || "https://placehold.co/400"}
                       date={moment(item?.createdAt).format(
                         "MMMM Do YYYY, h:mm a"
                       )}

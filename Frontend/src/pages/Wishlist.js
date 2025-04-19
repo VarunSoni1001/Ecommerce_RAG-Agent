@@ -46,7 +46,7 @@ const Wishlist = () => {
                     <div className="wishlist-card-image">
                       <img
                         src={
-                          "https://placehold.co/400" ||
+                          item?.images[0]?.url || "https://placehold.co/400" ||
                           "images/watch.jpg"
                         }
                         className="img-fluid w-100"

@@ -395,7 +395,7 @@ const Checkout = () => {
                             {item?.quantity}
                           </span>
                           <img
-                            src={"https://placehold.co/400"}
+                            src={item?.images[0]?.url || "https://placehold.co/400"}
                             width={100}
                             height={100}
                             alt="product"

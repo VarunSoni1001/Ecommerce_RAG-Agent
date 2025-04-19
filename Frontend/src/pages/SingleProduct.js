@@ -72,9 +72,7 @@ const SingleProduct = () => {
     height: 600,
     zoomWidth: 600,
 
-    img:
-      "https://placehold.co/400" ||
-      "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg",
+    img: productState?.images[0].url || "https://placehold.co/400",
   };
 
   const [orderedProduct, setorderedProduct] = useState(true);
@@ -146,9 +144,9 @@ const SingleProduct = () => {
               <div className="other-product-images d-flex flex-wrap gap-15">
                 {productState?.images.map((item, index) => {
                   return (
-                    <div>
+                    <div key={index}>
                       <img
-                        src={"https://placehold.co/400"}
+                        src={item?.url || "https://placehold.co/400"}
                         className="img-fluid"
                         alt=""
                       />

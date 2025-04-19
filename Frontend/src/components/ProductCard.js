@@ -74,7 +74,7 @@ const ProductCard = (props) => {
 
               <div className="product-image">
                 <img
-                  src={"https://placehold.co/400"}
+                  src={item?.images[0]?.url || "https://placehold.co/400"}
                   // className="img-fluid d"
                   alt="product image"
                   height={"250px"}
@@ -82,7 +82,7 @@ const ProductCard = (props) => {
                   onClick={() => navigate("/product/" + item?._id)}
                 />
                 <img
-                  src={"https://placehold.co/400"}
+                  src={item?.images[0]?.url || "https://placehold.co/400"}
                   // className="img-fluid d"
                   alt="product image"
                   height={"250px"}

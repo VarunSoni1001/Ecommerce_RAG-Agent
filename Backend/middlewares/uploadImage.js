@@ -36,11 +36,12 @@ const productImgResize = async (req, res, next) => {
         file.filename
       );
 
-      await sharp(file.path)
-        .resize(300, 300)
-        .toFormat("jpeg")
-        .jpeg({ quality: 90 })
-        .toFile(outputPath);
+      // await sharp(file.path)
+      //   .resize(300, 300)
+      //   .toFormat("jpeg")
+      //   .jpeg({ quality: 90 })
+      //   .toFile(outputPath);
+      return outputPath;
     })
   );
   next();
@@ -50,12 +51,18 @@ const blogImgResize = async (req, res, next) => {
   if (!req.files) return next();
   await Promise.all(
     req.files.map(async (file) => {
-      await sharp(file.path)
-        .resize(300, 300)
-        .toFormat("jpeg")
-        .jpeg({ quality: 90 })
-        .toFile(`public/images/blogs/${file.filename}`);
-      fs.unlinkSync(`public/images/blogs/${file.filename}`);
+      const outputPath = path.join(
+        __dirname,
+        "../public/images/blogs",
+        file.filename
+      );
+      // await sharp(file.path)
+      //   .resize(300, 300)
+      //   .toFormat("jpeg")
+      //   .jpeg({ quality: 90 })
+      //   .toFile(`public/images/blogs/${file.filename}`);
+      // fs.unlinkSync(`public/images/blogs/${file.filename}`);
+      return outputPath;
     })
   );
   next();

@@ -90,7 +90,7 @@ const Cart = () => {
                     <div className="cart-col-1 gap-15 d-flex align-items-center">
                       <div className="w-25">
                         <img
-                          src={"https://placehold.co/400"}
+                          src={item?.images[0]?.url || "https://placehold.co/400"}
                           className="img-fluid"
                           alt="product image"
                         />
