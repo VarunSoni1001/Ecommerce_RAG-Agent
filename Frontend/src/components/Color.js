@@ -1,7 +1,9 @@
 import React from "react";
 
 const Color = (props) => {
-  const { colorData, setColor } = props;
+  const { colorData, setColor, selectedColorId } = props;
+  console.log("colorData", colorData);
+  console.log("selectedColorId", selectedColorId);
   return (
     <>
       <ul className="colors ps-0">
@@ -10,9 +12,16 @@ const Color = (props) => {
             return (
               <li
                 onClick={() => setColor(item?._id)}
-                style={{ backgroundColor: item?.title }}
+                style={{
+                  backgroundColor: item?.title,
+                  padding: "2px",
+                  outline:
+                    selectedColorId === item?._id
+                      ? "4px solid #000fff32"
+                      : "4px solid transparent",
+                }}
                 key={index}
-              ></li>
+              />
             );
           })}
       </ul>

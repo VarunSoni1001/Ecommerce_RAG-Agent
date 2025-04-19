@@ -4,15 +4,15 @@
   box-sizing: border-box;
 }
 :root {
-  --color-131921: #1E2A38; /* Deep navy for headers and backgrounds */
-  --color-3b4149: #2C3E50; /* Muted dark blue for subtle contrast */
-  --color-febd69: #F4A261; /* Warm, inviting orange accent */
+  --color-131921: #1e2a38; /* Deep navy for headers and backgrounds */
+  --color-3b4149: #2c3e50; /* Muted dark blue for subtle contrast */
+  --color-febd69: #f4a261; /* Warm, inviting orange accent */
   --color-232f3e: #263544; /* Slightly softened dark blue */
-  --color-bf4800: #E76F51; /* Modern red-orange for strong accents */
-  --color-f5f5f7: #F8F9FA; /* Clean, neutral background */
-  --color-ededed: #E0E0E0; /* Soft gray for subtle UI elements */
-  --color-777777: #6C757D; /* Improved gray for better readability */
-  --color-1c1c1b: #2D2D2D; /* Darker text for better contrast */
+  --color-bf4800: #e76f51; /* Modern red-orange for strong accents */
+  --color-f5f5f7: #f8f9fa; /* Clean, neutral background */
+  --color-ededed: #e0e0e0; /* Soft gray for subtle UI elements */
+  --color-777777: #6c757d; /* Improved gray for better readability */
+  --color-1c1c1b: #2d2d2d; /* Darker text for better contrast */
 }
 
 .section-heading {
@@ -642,18 +642,31 @@ footer .input-group-text {
 }
 .main-product-image img {
   width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 .other-product-images {
   background-color: white;
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 .other-product-images > div {
   padding: 20px;
-  width: 48%;
+  aspect-ratio: 1/1;
+  width: 120px;
   border: 1px solid rgba(0, 0, 0, 0.25);
+  object-fit: contain;
 }
+
+.img-fluid {
+  width: 100% !important;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
 .main-product-image .js-image-zoom__zoomed-image {
   left: 50px !important;
   padding: 10px;
