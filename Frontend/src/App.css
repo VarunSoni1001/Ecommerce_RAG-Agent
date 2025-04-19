@@ -661,7 +661,7 @@ footer .input-group-text {
   object-fit: contain;
 }
 
-.img-fluid {
+.other-product-images > div > img {
   width: 100% !important;
   aspect-ratio: 1/1;
   object-fit: contain;
