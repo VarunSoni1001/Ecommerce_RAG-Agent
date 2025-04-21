@@ -14,17 +14,29 @@ const instance = new Razorpay({
 
 const checkout = async (req, res) => {
   const { amount } = req.body;
+  if (!amount) {
+    return res.status(400).json({
+      success: false,
+      message: "Amount is required",
+    });
+  }
+
   const option = {
     amount: amount * 100,
     currency: "INR",
   };
-  const order = await instance.orders.create(option);
-  if (!order) res.status(500).send("Some error occured");
-  // console.log("order", order);
-  res.json({
-    success: true,
-    order,
-  });
+
+  try {
+    const order = await instance.orders.create(option);
+    if (!order) res.status(500).send("Some error occured");
+    // console.log("order", order);
+    return res.json({
+      success: true,
+      order,
+    });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
 };
 
 const paymentVerification = async (req, res) => {
