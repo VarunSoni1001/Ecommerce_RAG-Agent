@@ -32,6 +32,8 @@ const Cart = () => {
   const [totalAmount, setTotalAmount] = useState(null);
   const userCartState = useSelector((state) => state.auth.cartProducts);
 
+  console.log(userCartState);
+
   useEffect(() => {
     dispatch(getUserCart(config2));
   }, []);
@@ -90,7 +92,7 @@ const Cart = () => {
                     <div className="cart-col-1 gap-15 d-flex align-items-center">
                       <div className="w-25">
                         <img
-                          src={item?.images[0]?.url || "https://placehold.co/400"}
+                          src={item?.productId?.images[0]?.url || "https://placehold.co/400"}
                           className="img-fluid"
                           alt="product image"
                         />

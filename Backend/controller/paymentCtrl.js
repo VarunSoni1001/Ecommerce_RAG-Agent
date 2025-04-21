@@ -4,7 +4,7 @@ require("dotenv").config();
 const RAZORPAY_API_KEY = process.env.RAZORPAY_API_KEY;
 
 if (!RAZORPAY_API_KEY) {
-  throw new Error("RAZORPAY_API_KEY is not found in .env file", "FRONTEND");
+  throw new Error("RAZORPAY_API_KEY is not found in .env file", "BACKEND");
 }
 
 const instance = new Razorpay({
@@ -19,6 +19,8 @@ const checkout = async (req, res) => {
     currency: "INR",
   };
   const order = await instance.orders.create(option);
+  if (!order) res.status(500).send("Some error occured");
+  // console.log("order", order);
   res.json({
     success: true,
     order,
