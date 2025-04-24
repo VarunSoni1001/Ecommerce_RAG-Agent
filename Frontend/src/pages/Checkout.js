@@ -36,10 +36,7 @@ const Checkout = () => {
   const authState = useSelector((state) => state?.auth);
   const [totalAmount, setTotalAmount] = useState(null);
   const [shippingInfo, setShippingInfo] = useState(null);
-  const [paymentInfo, setPaymentInfo] = useState({
-    razorpayPaymentId: "",
-    razorpayOrderId: "",
-  });
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -198,6 +195,7 @@ const Checkout = () => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
+  
   return (
     <>
       <Container class1="checkout-wrapper py-5 home-wrapper-2">

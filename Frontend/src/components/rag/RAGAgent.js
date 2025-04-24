@@ -21,14 +21,10 @@ const RAGAgent = ({
 
   useEffect(() => {
     if (showRAGAgent) {
-      // Prevent background scroll
       document.body.style.overflow = "hidden";
     } else {
-      // Restore scroll when closed
       document.body.style.overflow = "";
     }
-
-    // Clean up on unmount
     return () => {
       document.body.style.overflow = "";
     };
@@ -97,7 +93,6 @@ const RAGAgent = ({
             )}
           </div>
         ))}
-        {/* <div ref={messagesEndRef} /> */}
       </div>
 
       <div className="input-container">

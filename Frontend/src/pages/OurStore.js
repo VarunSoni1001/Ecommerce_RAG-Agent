@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
-import ReactStars from "react-rating-stars-component";
 import ProductCard from "../components/ProductCard";
-import Color from "../components/Color";
 import Container from "../components/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../features/products/productSlilce";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import RAGAgent from "../components/rag/RAGAgent";
 import { RAGToggleButton } from "../components/rag/RAGToggleButton";
 

@@ -134,7 +134,6 @@ const getRag = async (
     throw new Error("Data is required when type is specified.");
   }
 
-  // Set system instruction based on type
   switch (type) {
     case "store":
       systemInstruction = storeInfoSystemInstruction(data);

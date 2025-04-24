@@ -5,12 +5,9 @@ import Meta from "../components/Meta";
 import ProductCard from "../components/ProductCard";
 import ReactImageZoom from "react-image-zoom";
 import Color from "../components/Color";
-import { TbGitCompare } from "react-icons/tb";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import watch from "../images/watch.jpg";
+import { useLocation, useNavigate } from "react-router-dom";
 import Container from "../components/Container";
-import { addToWishlist } from "../features/products/productSlilce";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addRating,
@@ -34,9 +31,8 @@ const SingleProduct = () => {
   const productState = useSelector((state) => state?.product?.singleproduct);
   const productsState = useSelector((state) => state?.product?.product);
   const cartState = useSelector((state) => state?.auth?.cartProducts);
-  const wishlistState = useSelector((state) => state?.auth?.wishlist?.wishlist);
+  // const wishlistState = useSelector((state) => state?.auth?.wishlist?.wishlist);
   const [selectedZoomImage, setSelectedZoomImage] = useState(null);
-  console.log(wishlistState);
 
   useEffect(() => {
     dispatch(getAProduct(getProductId));
@@ -438,61 +434,6 @@ const SingleProduct = () => {
             <ProductCard data={popularProduct} />
           </div>
         </Container>
-
-        {/* <div
-        className="modal fade"
-        id="staticBackdrop"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered ">
-          <div className="modal-content">
-            <div className="modal-header py-0 border-0">
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body py-0">
-              <div className="d-flex align-items-center">
-                <div className="flex-grow-1 w-50">
-                  <img src={watch} className="img-fluid" alt="product imgae" />
-                </div>
-                <div className="d-flex flex-column flex-grow-1 w-50">
-                  <h6 className="mb-3">Apple Watch</h6>
-                  <p className="mb-1">Quantity: asgfd</p>
-                  <p className="mb-1">Color: asgfd</p>
-                  <p className="mb-1">Size: asgfd</p>
-                </div>
-              </div>
-            </div>
-            <div className="modal-footer border-0 py-0 justify-content-center gap-30">
-              <button type="button" className="button" data-bs-dismiss="modal">
-                View My Cart
-              </button>
-              <button type="button" className="button signup">
-                Checkout
-              </button>
-            </div>
-            <div className="d-flex justify-content-center py-3">
-              <Link
-                className="text-dark"
-                to="/product"
-                onClick={() => {
-                  closeModal();
-                }}
-              >
-                Continue To Shopping
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
         {showRAGAgent && (
           <RAGAgent
