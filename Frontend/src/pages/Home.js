@@ -50,8 +50,6 @@ const Home = () => {
     store_information: existingStoreInfo,
   };
 
-  console.log("ragData", ragData);
-
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -91,8 +89,8 @@ const Home = () => {
               />
               <div className="main-banner-content position-absolute">
                 <h4>SUPERCHARGED FOR PROS.</h4>
-                <h5>iPad S13+ Pro.</h5>
-                <p>From Rs. 81,900.00 </p>
+                <h5>Airpods</h5>
+                <p>From Rs. 21,900.00 </p>
                 <Link className="button">BUY NOW</Link>
               </div>
             </div>
@@ -115,43 +113,43 @@ const Home = () => {
               </div>
               <div className="small-banner position-relative">
                 <img
-                  src="images/catbanner-02.jpg"
+                  src="images/catbanner-01.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h4>Best Sake</h4>
+                  <h5>MacBook Pro.</h5>
                   <p>
-                    From Rs. 21,625.00 <br />
+                    From Rs. 1,29,900.00 <br />
                   </p>
                 </div>
               </div>
-              <div className="small-banner position-relative ">
+              <div className="small-banner position-relative">
                 <img
-                  src="images/catbanner-03.jpg"
+                  src="images/catbanner-01.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But IPad Air</h5>
+                  <h4>Best Sake</h4>
+                  <h5>MacBook Pro.</h5>
                   <p>
-                    From Rs. 41,900.00 <br />
+                    From Rs. 1,29,900.00 <br />
                   </p>
                 </div>
               </div>
-              <div className="small-banner position-relative ">
+              <div className="small-banner position-relative">
                 <img
-                  src="images/catbanner-04.jpg"
+                  src="images/catbanner-01.jpg"
                   className="img-fluid rounded-3"
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>NEW ARRIVAL</h4>
-                  <h5>But Headphone</h5>
+                  <h4>Best Sake</h4>
+                  <h5>MacBook Pro.</h5>
                   <p>
-                    From Rs. 41,000.00 <br />
+                    From Rs. 1,29,900.00 <br />
                   </p>
                 </div>
               </div>
@@ -369,14 +367,14 @@ const Home = () => {
           <div className="col-3">
             <div className="famous-card position-relative">
               <img
-                src="images/famous-3.webp"
+                src="images/famous-1.webp"
                 className="img-fluid"
                 alt="famous"
               />
               <div className="famous-content position-absolute">
-                <h5 className="text-dark">home speakers</h5>
-                <h6 className="text-dark">Room-filling sound.</h6>
-                <p className="text-dark">From Rs. 699</p>
+                <h5>Big Screen</h5>
+                <h6>Smart Watch Series 7</h6>
+                <p>From Rs. 399</p>
               </div>
             </div>
           </div>
@@ -386,7 +384,7 @@ const Home = () => {
       <Container class1="special-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
-            <h3 className="section-heading">Special Products</h3>
+            {/* <h3 className="section-heading">Special Products</h3> */}
           </div>
         </div>
         <div className="row">

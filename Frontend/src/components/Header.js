@@ -61,8 +61,8 @@ const Header = () => {
     window.location.reload();
   };
   return (
-    <>
-      <header className="header-top-strip py-3">
+    <header className="header-fixed">
+      {/* <header className="header-top-strip py-3">
         <div className="container-xxl">
           <div className="row">
             <div className="col-6">
@@ -78,14 +78,14 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
       <header className="header-upper py-3">
         <div className="container-xxl">
           <div className="row align-items-center">
             <div className="col-2">
               <h2>
                 <Link className="text-white" to="/ ">
-                  RAG Ecom
+                  RAGEcom
                 </Link>
               </h2>
             </div>
@@ -127,9 +127,7 @@ const Header = () => {
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <img src={wishlist} alt="wishlist" />
-                    <p className="mb-0">
-                      Favourite <br /> wishlist
-                    </p>
+                    <p className="mb-0">Wishlist</p>
                   </Link>
                 </div>
                 <div>
@@ -139,13 +137,9 @@ const Header = () => {
                   >
                     <img src={user} alt="user" />
                     {authState?.user === null ? (
-                      <p className="mb-0">
-                        Log in <br /> My Account
-                      </p>
+                      <p className="mb-0">Log in</p>
                     ) : (
-                      <p className="mb-0">
-                        Welcome {authState?.user?.firstname}
-                      </p>
+                      <p className="mb-0">{authState?.user?.firstname}</p>
                     )}
                   </Link>
                 </div>
@@ -159,9 +153,9 @@ const Header = () => {
                       <span className="badge bg-white text-dark">
                         {cartState?.length ? cartState?.length : 0}
                       </span>
-                      <p className="mb-0">
+                      {/* <p className="mb-0">
                         Rs. {!cartState?.length ? 0 : total ? total : 0}
-                      </p>
+                      </p> */}
                     </div>
                   </Link>
                 </div>
@@ -195,9 +189,20 @@ const Header = () => {
                     >
                       {productState &&
                         productState.map((item, index) => {
+                          if (
+                            item?.category === productState[index - 1]?.category
+                          ) {
+                            return null;
+                          }
                           return (
                             <li key={index}>
-                              <Link className="dropdown-item text-white" to="">
+                              <Link
+                                className="dropdown-item text-white"
+                                to={
+                                  "/product?category=" +
+                                  encodeURIComponent(item?.category)
+                                }
+                              >
                                 {item?.category}
                               </Link>
                             </li>
@@ -211,13 +216,13 @@ const Header = () => {
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/product">Our Store</NavLink>
                     <NavLink to="/my-orders">My Orders</NavLink>
-                    <NavLink to="/blogs">Blogs</NavLink>
+                    {/* <NavLink to="/blogs">Blogs</NavLink> */}
                     <NavLink to="/contact">Contact</NavLink>
                     {authState?.user !== null ? (
                       <button
                         className="border border-0 bg-trasparent text-white text-uppercase"
                         type="button"
-                        style={{ backgroundColor: "#232f3e" }}
+                        style={{ backgroundColor: "transparent" }}
                         onClick={handleLogout}
                       >
                         LogOut
@@ -232,7 +237,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-    </>
+    </header>
   );
 };
 

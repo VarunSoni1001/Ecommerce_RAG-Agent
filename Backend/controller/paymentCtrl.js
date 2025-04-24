@@ -2,14 +2,19 @@ const Razorpay = require("razorpay");
 require("dotenv").config();
 
 const RAZORPAY_API_KEY = process.env.RAZORPAY_API_KEY;
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET;
 
 if (!RAZORPAY_API_KEY) {
   throw new Error("RAZORPAY_API_KEY is not found in .env file", "BACKEND");
 }
 
+if (!RAZORPAY_KEY_SECRET) {
+  throw new Error("RAZORPAY_KEY_SECRET is not found in .env file", "BACKEND");
+}
+
 const instance = new Razorpay({
   key_id: RAZORPAY_API_KEY,
-  key_secret: "sRO0YkBxvgMg0PvWHJN16Uf7",
+  key_secret: RAZORPAY_KEY_SECRET,
 });
 
 const checkout = async (req, res) => {

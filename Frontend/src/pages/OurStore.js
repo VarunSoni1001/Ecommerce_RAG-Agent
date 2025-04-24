@@ -7,12 +7,14 @@ import Color from "../components/Color";
 import Container from "../components/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../features/products/productSlilce";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import RAGAgent from "../components/rag/RAGAgent";
 import { RAGToggleButton } from "../components/rag/RAGToggleButton";
 
 const OurStore = () => {
   const [grid, setGrid] = useState(4);
+  const [searchParams] = useSearchParams();
+  const searchedCategory = searchParams.get("category") || null;
   const productState = useSelector((state) => state?.product?.product);
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -22,7 +24,7 @@ const OurStore = () => {
 
   //filter state
   const [tag, setTag] = useState(null);
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState(searchedCategory || null);
   const [brand, setBrand] = useState(null);
   const [minPrice, setminPrice] = useState(null);
   const [maxPrice, setmaxPrice] = useState(null);
@@ -229,7 +231,14 @@ const OurStore = () => {
             </div>
           </div>
         </div>
-        {showRAGAgent && <RAGAgent data={productState} type="many_products" showRAGAgent={showRAGAgent} setShowRAGAgent={setShowRAGAgent} />}
+        {showRAGAgent && (
+          <RAGAgent
+            data={productState}
+            type="many_products"
+            showRAGAgent={showRAGAgent}
+            setShowRAGAgent={setShowRAGAgent}
+          />
+        )}
         <RAGToggleButton
           showRAGAgent={showRAGAgent}
           setShowRAGAgent={setShowRAGAgent}
